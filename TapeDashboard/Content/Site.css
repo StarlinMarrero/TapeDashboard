@@ -1,0 +1,38 @@
+﻿
+
+/* Set padding to keep content from hitting the edges */
+
+
+.bodybackground {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#4f85bb+0,4f85bb+100;Blue+3D+%239 */
+    background: #4f85bb; /* Old browsers */
+    background: -moz-linear-gradient(top, #4f85bb 0%, #4f85bb 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #4f85bb 0%,#4f85bb 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #4f85bb 0%,#4f85bb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4f85bb', endColorstr='#4f85bb',GradientType=0 ); /* IE6-9 */
+}
+
+#a-custom {
+    text-decoration: none;
+}
+
+@keyframes bounce {
+    0%, 20%, 60%, 100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+
+    40% {
+        -webkit-transform: translateY(-20px);
+        transform: translateY(-20px);
+    }
+    80% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+    }
+}
+
+#a-custom:hover {
+    font-size: 17px;
+    animation: bounce 1s;
+}

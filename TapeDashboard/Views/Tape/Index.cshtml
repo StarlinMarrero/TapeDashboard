@@ -1,0 +1,58 @@
+﻿@model IEnumerable<TapeDashboard.Models.Tape>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Formato)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CantidadTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CantidadEnUso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CantidadDisponible)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LabelFisico)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Formato)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantidadTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantidadEnUso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CantidadDisponible)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LabelFisico)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TapeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TapeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TapeID })
+        </td>
+    </tr>
+}
+
+</table>

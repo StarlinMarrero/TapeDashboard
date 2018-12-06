@@ -1,0 +1,118 @@
+﻿@using TapeDashboard.Models
+@model LoginViewModel
+@{
+    Layout = null;
+}
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+</head>
+<body class="bodybackground ">
+
+    <div class="wrapper wrapper-full-page">
+        <div class="container">
+            <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
+                <br />
+
+                @*<img src="~/Content/img/logo.png" height="54" alt="Admin" />*@
+                <br /><br />
+                @*<hr class="text-white bg-white" />*@
+                <div class="card border-0 card-hidden">
+
+                    <div class="card-header bg-dark text-center">
+                        @*<h3 class="card-title text-white">Respaldos Tape</h3>*@
+                        <div class="social-line">
+                            @*<p>
+                        <span style="font-size:35px;">
+                            <i class="fas fa-tachometer-alt text-white"></i>
+                            <i class="fas fa-user text-white"></i>
+                            <i class="fas fa-fingerprint text-white"></i>
+                        </span>
+                    </p>*@
+                            <h3 class="card-title text-white">
+                                <span style="font-size:35px;">
+                                    @*<i class="fas fa-tachometer-alt text-white"></i>*@
+                                    <i class="fas fa-user text-white"></i>
+                                    @*<i class="fas fa-fingerprint text-white"></i>*@
+                                </span>
+                                Respaldos
+                            </h3>
+
+                        </div>
+                    </div>
+                    <div class="card-body bg-light">
+                        <div class="container">
+                            <section id="loginForm">
+                                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                {
+
+                                    @Html.AntiForgeryToken()
+
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                        </div>
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Usuario o Email" })
+                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+
+                                    </div>
+                                    <div class="input-group form-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                        </div>
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", @type = "password", @placeholder = "Contrasena" })
+                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="checkbox checkbox-material">
+                                        @Html.CheckBoxFor(m => m.RememberMe, new { @type = "checkbox" })
+                                        Recordar Ingreso?
+                                    </div>
+
+                                    <hr />
+                                    <div class="form-group">
+                                        <div class="justify-content-center">
+                                            <input type="submit" value="Iniciar Sesion" class="btn btn-block btn-dark" />
+                                        </div>
+                                    </div>
+
+                                }
+                            </section>
+                        </div>
+                    </div>
+                    <div class="card-footer justify-content-center bg-dark">
+                        <div class="d-flex justify-content-center">
+                           
+                                <a href="/Home/Contact" class="btn btn-link text-white" id="a-custom">
+                                    <span>No estas registrado?</span><br />
+                                    <span>Contacta al Administrador!</span>
+                                </a>
+                            
+                            @*<p>
+                                @Html.ActionLink("No estas registrado? Contacta al Administrador!", "/Home/Contact", new { @class = "btn btn-info btn-link btn-lg" })
+                            </p>*@
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @section Scripts {
+        <script src="~/Scripts/jquery-3.3.1.js"></script>
+        <script src="~/Scripts/fontawesome.js"></script>
+        <script src="~/Scripts/all.js"></script>
+        @*<script src="~/Scripts/material-dashboard.js"></script>*@
+        <script src="~/Scripts/popper-utils.js"></script>
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</body>
+</html>

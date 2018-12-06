@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    <link href="~/Content/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/themify-icons/css/themify-icons.css" rel="stylesheet" />
+    <link href="~/Content/flag-icon-css/css/flag-icon.min.css" rel="stylesheet" />
+    <link href="~/Content/selectFX/css/cs-skin-elastic.css" rel="stylesheet" />
+    <link href="~/Content/jqvmap/dist/jqvmap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    @*<div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>*@
+    <!-- Left Panel -->
+    <aside id="left-panel" class="left-panel">
+        <nav class="navbar navbar-expand-sm navbar-default">
+            <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                @Html.ActionLink(" ", "Index", "Home", new { @class = "navbar-brand" })<i class="fa fa-server"></i>
+                @Html.ActionLink(" ", "Index", "Home", new { @class = "navbar-brand hidden" })<i class="fa fa-server"></i>
+            </div>
+            <div id="main-menu" class="main-menu collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>
+                        @Html.ActionLink("DashBoard", "Index", "Home") <i class="menu-icon fa fa-dashboard"></i>
+                    </li>*@
+                    <h3 class="menu-title">Tipos de Respaldos</h3><!-- /.menu-title -->
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-server"></i>Respaldos Unix</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-puzzle-piece"></i>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li><i class="fa fa-id-badge"></i>@Html.ActionLink("About", "About", "Home")</li>
+                            <li><i class="fa fa-bars"></i>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            
+                        </ul>
+                    </li>
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-desktop"></i>NT - Windows</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="fa fa-table"></i><a href="tables-basic.html">Basic Table</a></li>
+                            <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
+                        </ul>
+                    </li>
+                    
+                    <h3 class="menu-title">Politica</h3><!-- /.menu-title -->
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-tasks"></i>Icons</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-fort-awesome"></i><a href="font-fontawesome.html">Font Awesome</a></li>
+                            <li><i class="menu-icon ti-themify-logo"></i><a href="font-themify.html">Themefy Icons</a></li>
+                        </ul>
+                    </li>
+                    
+                    <h3 class="menu-title">Administrador</h3><!-- /.menu-title -->
+                    <li class="menu-item-has-children dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Administrar</a>
+                        <ul class="sub-menu children dropdown-menu">
+                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Usuarios & Permisos</a></li>
+                            <li><span><i class="fa fa-fingerprint"> </i> </span>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+                            <li><span><i class="fa fa-user"> </i> </span>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+
+                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Configurar Politica</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </nav>
+    </aside><!-- /#left-panel -->
+    <!-- Left Panel -->
+    <!-- Right Panel -->
+    <div id="right-panel" class="right-panel">
+        <!-- Header-->
+        <header id="header" class="header">
+            <div class="header-menu">
+                <div class="col-sm-7">
+                    <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+                    <div class="header-left">
+                        <button class="search-trigger"><i class="fa fa-search"></i></button>
+                        <div class="form-inline">
+                            <form class="search-form">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
+                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                        <div class="col-sm-5">
+                            <div class="user-area dropdown float-right">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fa fa-user"></i>
+
+                                </a>
+                                <div class="user-menu dropdown-menu">
+                                    @Html.Partial("_LoginPartial")
+                                    <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>
+                                    <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+                                    <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+</header><!-- /header -->
+    
+        <!-- Header-->
+        <div class="breadcrumbs">
+            <div class="col-sm-4">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <div class="page-header float-right">
+                    <div class="page-title">
+                        <ol class="breadcrumb text-right">
+                            <li class="active">Dashboard</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content mt-3">
+            @RenderBody()
+
+        </div>
+            
+    </div><!-- /#right-panel -->
+    <!-- Right Panel -->
+
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/umd/popper.js"></script>
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/Chart/dist/Chart.min.js"></script>
+    <script src="~/Scripts/dashboard.js"></script>
+    <script src="~/Scripts/widgets.js"></script>
+    <script src="~/Scripts/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="~/Scripts/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script>
+        (function ($) {
+            "use strict";
+
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: null,
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#1de9b6',
+                enableZoom: true,
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#1de9b6', '#03a9f5'],
+                normalizeFunction: 'polynomial'
+            });
+        })(jQuery);
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
